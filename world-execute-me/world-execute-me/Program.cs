@@ -1,37 +1,91 @@
 ﻿using System.Diagnostics;
 
 Random ran = new Random();
-TextTypingAnimation("Song: ", 0.4, false);
-TextScatterAnimation("world.execute(me)", 0.5, 10, true);
+TextTypingAnimation("Song: ", 0.4, false, ConsoleColor.Gray);
+TextScatterAnimation("world.execute(me)", 0.5, 10, ConsoleColor.Green);
 
 Thread.Sleep(1000);
 Console.WriteLine();
 
-TextTypingAnimation("Artist: ", 0.5, false);
-TextScatterAnimation("Mili", 0.5, 10, true);
+TextTypingAnimation("Artist: ", 0.5, false, ConsoleColor.Gray);
+TextScatterAnimation("Mili", 0.5, 10, ConsoleColor.Green);
 
 Thread.Sleep(2000);
 Console.Clear();
 
-InsertPrompt();  
-TextTypingAnimation("Switch on the power line: ", 0.4, false);
+TextTypingAnimation("Switch on the power line: ", 1.5, false, ConsoleColor.Gray);
 Console.ForegroundColor = ConsoleColor.Red;
 Console.Write("OFF");
 Thread.Sleep(250);
 EraseText(3);
-TextScatterAnimation("ON", 0.5, 10, true);
+TextScatterAnimation("ON", 0.5, 10, ConsoleColor.Green);
 
 DisplayAsciiIntro();
 
+Console.ForegroundColor = ConsoleColor.Red;
+Console.Write("WARNING: Object is unstable! ");
+Console.ForegroundColor = ConsoleColor.Gray;
+TextTypingAnimation("Remember to put on ", 1.5, false, ConsoleColor.Gray);
+TextScatterAnimation("Protection", 0.5, 10, ConsoleColor.Yellow);
+Console.WriteLine("\n");
+
 InsertPrompt();
-TextTypingAnimation("Lay down your pieces: ", 0.4, false);
+TextTypingAnimation("Lay down your pieces: ", 2, false, ConsoleColor.Gray);
+EraseText("Lay down your pieces: ".Length);
+TextScatterAnimation(".\\SetPieces.ps1", 0.5, 10, ConsoleColor.Gray);
+Console.WriteLine();
+Console.WriteLine("Currently Selected Piece/s: ");
+Console.WriteLine(@"
+    Piece you = new Piece 
+    {
+        Name = ""You"";
+        Age = 100;
+        Sex = 'M'; 
+    }
+        
+    Piece me = new Piece 
+    {
+        Name = ""Me"";
+        Age = 0;
+        Sex = 'F'; 
+    }
+
+");
+
+InsertPrompt();
+TextTypingAnimation("And let's begin object creation", 2, false, ConsoleColor.Gray);
+EraseText("And let's begin object creation".Length);
+TextScatterAnimation(".\\CreateObjects.ps1", 0.5, 10, ConsoleColor.Gray);
+AnimateCreateObjects();
+InsertPrompt();
+TextTypingAnimation("Fill in my data, parameters, initialization", 2, false, ConsoleColor.Gray);
+EraseText("Fill in my data, parameters, initialization".Length);
+TextScatterAnimation(@".\\FillDataForObjects.ps1 -ObjectOne ""You"" -ObjectTwo ""Me""", 0.5, 10, ConsoleColor.Gray);
+Console.Write(@"
+Data for Object 'You':
+  ""HeightCm"": 175.4,
+  ""WeightKg"": 68.2,
+  ""EyeColor"": ""Gray"",
+  ""HairColor"": ""Black"",
+  ""BloodType"": ""AB-"",
+  ""Ethnicity"": ""Mixed"",
+  ""Nationality"": ""Unknown"",
+  ""BiologicalAge"": 24.9,
+  ""DNAHash"": ""X51T-91AC-GC14-2Z7Y""
+
+Data for Object 'Me':
+");
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Error: Object is inaccesble.");
+Console.ForegroundColor = ConsoleColor.White;
 
 
 
 
 
 
-void TextScatterAnimation(string text, double duration, int animationSpeed, bool highlight)
+Thread.Sleep(2500);
+void TextScatterAnimation(string text, double duration, int animationSpeed, ConsoleColor color)
 {
     int stringLength = text.Length;
     Stopwatch stopwatch = Stopwatch.StartNew();
@@ -47,15 +101,12 @@ void TextScatterAnimation(string text, double duration, int animationSpeed, bool
 
     Console.CursorVisible = true;
 
-    if (highlight)
-    {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write(text);
-        Console.ForegroundColor = ConsoleColor.Gray;
-    }
+    Console.ForegroundColor = color;
+    Console.Write(text);
+    Console.ForegroundColor = ConsoleColor.Gray;
 }
 
-void TextTypingAnimation(string text, double duration, bool highlight)
+void TextTypingAnimation(string text, double duration, bool highlight, ConsoleColor color)
 {
     int durationDivisor = 1;
     if (highlight)
@@ -78,7 +129,7 @@ void TextTypingAnimation(string text, double duration, bool highlight)
 
     if (highlight)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = color;
         Console.Write("\r" + text);
         Console.ForegroundColor = ConsoleColor.Gray;
     }
@@ -123,6 +174,37 @@ void DisplayAsciiIntro()
 void InsertPrompt()
 {
     Console.ForegroundColor = ConsoleColor.Green;
-    Console.Write("world@execute-me:~$ ");
+    Console.Write("PS W:\\Execute\\Me> ");
     Console.ForegroundColor= ConsoleColor.Gray;
+}
+
+void AnimateCreateObjects()
+{
+    Console.WriteLine(@"
+Creating objects from Piece/s: 'You', 'Me'..."); Thread.Sleep(10);
+    Console.WriteLine(@"Generating simulated world using object/s: You, Me... "); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'You'"); Thread.Sleep(10);
+    Console.WriteLine(@"Object 'You' has been created! Applying to Simulated World"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me'"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (2)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (3)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (4)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (5)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (6)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (7)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (8)"); Thread.Sleep(10);
+    Console.WriteLine(@"Attempting to make object 'Me' (9)"); Thread.Sleep(10);
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine(@"Unhandled Exception: System.IdentityNotFoundException: Cannot instantiate object 'Me'.");
+    Console.WriteLine("Reason: 'Me' does not exist in the current conceptual layer.");
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("Warning: Object creation completed with errors.");
+    Console.WriteLine("Status: All objects initialized.");
+    Console.WriteLine("Note: 1 object/s may be corrupted.");
+    Console.WriteLine("Cause: Undefined referential origin in identity chain.");
+    Console.WriteLine("Stack Trace:");
+    Console.WriteLine("   at Simulation.ObjectRegistry.Register(Entity e)");
+    Console.WriteLine("   at Simulation.World.Construct()");
+    Console.WriteLine("   at Main()\n");
+    Console.ForegroundColor = ConsoleColor.Gray;
 }
