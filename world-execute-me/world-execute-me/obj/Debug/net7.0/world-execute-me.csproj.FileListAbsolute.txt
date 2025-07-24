@@ -1,0 +1,15 @@
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\world-execute-me.exe
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\world-execute-me.deps.json
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\world-execute-me.runtimeconfig.json
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\world-execute-me.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\world-execute-me.pdb
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.csproj.AssemblyReference.cache
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.AssemblyInfoInputs.cache
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.AssemblyInfo.cs
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.csproj.CoreCompileInputs.cache
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\refint\world-execute-me.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.pdb
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.genruntimeconfig.cache
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\ref\world-execute-me.dll
