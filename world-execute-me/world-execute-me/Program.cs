@@ -193,12 +193,12 @@ void EraseText(int length)
 void DisplayAsciiIntro()
 {
     Console.WriteLine(); Thread.Sleep(10);
-    Console.WriteLine("                    .__       .___                              .__  __              ___                  ___    ");
-    Console.WriteLine("__  _  _____________|  |    __| _/    ____ ___  ___ ____   ____ |__|/  |_  ____     /  /   _____   ____   \\  \\   "); Thread.Sleep(10);
-    Console.WriteLine("\\ \\/ \\/ /  _ \\_  __ \\  |   / __ |   _/ __ \\\\  \\/  // __ \\_/ ___\\|  \\   __\\/ __ \\   /  /   /     \\_/ __ \\   \\  \\  "); Thread.Sleep(10);
-    Console.WriteLine(" \\     (  <_> )  | \\/  |__/ /_/ |   \\  ___/ >    <\\  ___/\\  \\___|  ||  | \\  ___/  (  (   |  Y Y  \\  ___/    )  ) "); Thread.Sleep(10);
-    Console.WriteLine("  \\/\\_/ \\____/|__|  |____/\\____ | /\\ \\___  >__/\\_ \\\\___  >\\___  >__||__|  \\___  >  \\  \\  |__|_|  /\\___  >  /  /  "); Thread.Sleep(10);
-    Console.WriteLine("                               \\/ \\/     \\/      \\/    \\/     \\/              \\/    \\__\\       \\/     \\/  /__/  "); Thread.Sleep(10);
+    Console.WriteLine("                    .__       .___                                      __              ___                  ___    "); Thread.Sleep(10);
+    Console.WriteLine("__  _  _____________|  |    __| _/    ____ ___  ___ ____   ____  __ ___/  |_  ____     /  /   _____   ____   \\  \\   "); Thread.Sleep(10);
+    Console.WriteLine("\\ \\/ \\/ /  _ \\_  __ \\  |   / __ |   _/ __ \\\\  \\/  // __ \\_/ ___\\|  |  \\   __\\/ __ \\   /  /   /     \\_/ __ \\   \\  \\  "); Thread.Sleep(10);
+    Console.WriteLine(" \\     (  <_> )  | \\/  |__/ /_/ |   \\  ___/ >    <\\  ___/\\  \\___|  |  /|  | \\  ___/  (  (   |  Y Y  \\  ___/    )  ) "); Thread.Sleep(10);
+    Console.WriteLine("  \\/\\_/ \\____/|__|  |____/\\____ | /\\ \\___  >__/\\_ \\\\___  >\\___  >____/ |__|  \\___  >  \\  \\  |__|_|  /\\___  >  /  /  "); Thread.Sleep(10);
+    Console.WriteLine("                               \\/ \\/     \\/      \\/    \\/     \\/                 \\/    \\__\\       \\/     \\/  /__/  "); Thread.Sleep(10);
     Console.WriteLine("Establishing Virtual Environment...");
     Console.WriteLine("Current Version: WorldExeMe v1.0.0-alpha");
     Console.WriteLine("Logged in as: ADMIN");
