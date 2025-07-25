@@ -13,3 +13,10 @@ C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\
 C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.pdb
 C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.genruntimeconfig.cache
 C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\ref\world-execute-me.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\NiTzuA\source\repos\world-execute-me\world-execute-me\world-execute-me\obj\Debug\net7.0\world-execute-me.csproj.CopyComplete

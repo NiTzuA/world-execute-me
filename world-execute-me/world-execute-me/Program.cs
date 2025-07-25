@@ -1,7 +1,12 @@
 ﻿using System.Diagnostics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Media;
 
 Random ran = new Random();
+
+Console.WriteLine("Press any key to begin...");
+Console.ReadKey();
+Console.Clear();
+
 TextTypingAnimation("Song: ", 0.4, false, ConsoleColor.Gray);
 TextScatterAnimation("world.execute(me)", 0.5, 10, ConsoleColor.Green);
 
@@ -14,7 +19,18 @@ TextScatterAnimation("Mili", 0.5, 10, ConsoleColor.Green);
 Thread.Sleep(2000);
 Console.Clear();
 
-TextTypingAnimation("Switch on the power line: ", 1.5, false, ConsoleColor.Gray);
+
+if (OperatingSystem.IsWindows())
+{
+    SoundPlayer player = new SoundPlayer("worldexecuteme.wav ");
+    player.Play();
+} else
+{
+    Console.WriteLine("Only supported for Windows :(");
+}
+
+
+TextTypingAnimation("Switch on the power line: ", 0.9, false, ConsoleColor.Gray);
 Console.ForegroundColor = ConsoleColor.Red;
 Console.Write("OFF");
 Thread.Sleep(250);
@@ -26,14 +42,16 @@ DisplayAsciiIntro();
 Console.ForegroundColor = ConsoleColor.Red;
 Console.Write("WARNING: System is unstable! ");
 Console.ForegroundColor = ConsoleColor.Gray; 
-TextTypingAnimation("Remember to put on ", 1.5, false, ConsoleColor.Gray);
-TextScatterAnimation("Protection", 0.5, 10, ConsoleColor.Yellow);
+TextTypingAnimation("Remember to put on ", 1.0, false, ConsoleColor.Gray);
+TextScatterAnimation("PROTECTION", 0.4, 10, ConsoleColor.Yellow);
+Thread.Sleep(200);
 Console.WriteLine("\n");
 
 InsertPrompt();
-TextTypingAnimation("Lay down your pieces: ", 2, false, ConsoleColor.Gray);
+TextTypingAnimation("Lay down your pieces: ", 1, false, ConsoleColor.Gray);
+Thread.Sleep(100);
 EraseText("Lay down your pieces: ".Length);
-TextScatterAnimation(".\\SetPieces.ps1", 0.5, 10, ConsoleColor.Gray);
+TextScatterAnimation(".\\SetPieces.ps1", 0.3, 10, ConsoleColor.Gray);
 Console.WriteLine();
 Console.WriteLine("Currently Selected Piece/s: ");
 Console.WriteLine(@"
@@ -54,19 +72,23 @@ Console.WriteLine(@"
 ");
 
 InsertPrompt();
-TextTypingAnimation("And let's begin object creation", 2, false, ConsoleColor.Gray);
+TextTypingAnimation("And let's begin ", 1, false, ConsoleColor.Gray);
+TextScatterAnimation("OBJECT CREATION", 0.5, 10, ConsoleColor.Red);
+Thread.Sleep(500);
 EraseText("And let's begin object creation".Length);
-TextScatterAnimation(".\\CreateObjects.ps1", 0.5, 10, ConsoleColor.Gray);
+TextScatterAnimation(".\\CreateObjects.ps1", 0.2, 10, ConsoleColor.Gray);
 AnimateCreateObjects();
 InsertPrompt();
-TextTypingAnimation("Fill in my data, parameters, initialization", 3, false, ConsoleColor.Gray);
+TextTypingAnimation("Fill in my data, parameters, ", 1.5, false, ConsoleColor.Gray);
+Thread.Sleep(100);
+TextScatterAnimation("INITIALIZATION", 0.2, 10, ConsoleColor.Red);
+Thread.Sleep(500);
 EraseText("Fill in my data, parameters, initialization".Length);
 TextScatterAnimation(@".\\FillDataForObjects.ps1 -ObjectOne ""You"" -ObjectTwo ""Me""", 0.5, 10, ConsoleColor.Gray);
 Console.WriteLine(@"Data for user ""You"":"); Thread.Sleep(10);
 Console.WriteLine(@"""Username"": ""You"""); Thread.Sleep(10);
 Console.WriteLine(@"""Email"": ""you.execute@me.com"""); Thread.Sleep(10);
 Console.WriteLine(@"""Password"": **********"); Thread.Sleep(10);
-Console.WriteLine(); Thread.Sleep(500);
 Console.WriteLine(@"Data for user ""Me"":"); Thread.Sleep(10);
 
 Console.ForegroundColor = ConsoleColor.Red;
@@ -76,24 +98,25 @@ Console.ForegroundColor = ConsoleColor.Gray;
 
 
 InsertPrompt();
-TextTypingAnimation("Setup our new world", 2, false, ConsoleColor.Gray);
+TextTypingAnimation("Setup our new world", 1, false, ConsoleColor.Gray);
+Thread.Sleep(200);
 EraseText("Setup our new world".Length);
-TextScatterAnimation(".\\SetupNewWorld --suppress-errors --force-creation", 0.5, 10, ConsoleColor.Gray);
+TextScatterAnimation(".\\SetupNewWorld --suppress-errors --force-creation", 0.2, 10, ConsoleColor.Gray);
 Console.WriteLine();
 Console.Write("Confirm setup for new virtual world using existing users? (y\\n): ");
 Console.ForegroundColor = ConsoleColor.Red;
-TextTypingAnimation("And let's begin the S I M U L A T I O N .", 3, true, ConsoleColor.Red); Thread.Sleep(100);
+TextTypingAnimation("And let's begin the S I M U L A T I O N .", 1, true, ConsoleColor.Red); Thread.Sleep(100);
 EraseText("And let's begin the S I M U L A T I O N .".Length);
 TextScatterAnimation("y", 0.5, 10, ConsoleColor.Red);
-Thread.Sleep(500);
+Thread.Sleep(200);
 
 Console.Clear();
-AnimateWorldCreation();
+AnimateWorldCreation(12);
 
+InsertPromptVirtual();
+TextTypingAnimation("If I'm a set of points", 1, false, ConsoleColor.Gray);
 
-
-
-
+Thread.Sleep(5000);
 
 
 void TextScatterAnimation(string text, double duration, int animationSpeed, ConsoleColor color)
@@ -191,6 +214,13 @@ void InsertPrompt()
     Console.ForegroundColor= ConsoleColor.Gray;
 }
 
+void InsertPromptVirtual()
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.Write("PS W:\\Execute\\Me\\VirtualWorld> ");
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+
 void AnimateCreateObjects()
 {
     Console.WriteLine(@"
@@ -214,7 +244,7 @@ Creating objects from Piece/s: 'You', 'Me'..."); Thread.Sleep(10);
     Console.WriteLine("   at Simulation.Main()");
     Console.ForegroundColor = ConsoleColor.Gray;
     InsertPrompt(); Thread.Sleep(10);
-    TextScatterAnimation(".\\CreateObjects.ps1 --suppress-errors --force-creation", 0.5, 10, ConsoleColor.Gray);
+    TextScatterAnimation(".\\CreateObjects.ps1 --suppress-errors --force-creation", 0.1, 10, ConsoleColor.Gray);
     Console.WriteLine();
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine(@"Unhandled Exception: System.IdentityNotFoundException: Cannot instantiate object 'Me'.");
@@ -230,7 +260,7 @@ Creating objects from Piece/s: 'You', 'Me'..."); Thread.Sleep(10);
     Console.WriteLine("   at Main()\n");
 }
 
-void AnimateWorldCreation()
+void AnimateWorldCreation(int duration)
 {
     string[] asciiArt = new string[]
     {
@@ -268,7 +298,7 @@ void AnimateWorldCreation()
     Thread.Sleep(20);
     Console.WriteLine("Creating New Virtual World...\n");
     Thread.Sleep(20);
-    LoadingAnimation(15);
+    LoadingAnimation(duration);
 }
 
 void LoadingAnimation (float duration)
@@ -290,22 +320,12 @@ void LoadingAnimation (float duration)
         '|', '/', '-', '\\'
     };
 
-    int i = 0;
     int spinnerFrame = 0;
 
     while (stopwatch.Elapsed.TotalSeconds < duration)
     {
-        if (i >= 100)
-        {
-            Console.Write("Cleaning up...                               ");
-        } 
-        else if (i % 3 == 0)
-        {
-            Console.Write(genText[ran.Next(0, 5)]);
-        } else
-        {
-            Console.SetCursorPosition(45, Console.CursorTop);
-        }
+        int progress = (int)((stopwatch.Elapsed.TotalSeconds / duration) * 100);
+        Console.Write(genText[ran.Next(0, 5)]);
 
         if (spinnerFrame > 3)
         {
@@ -316,9 +336,9 @@ void LoadingAnimation (float duration)
 
         Console.Write("Loading... [");
 
-        for (int j = 0; j < 100; j++)
+        for (float j = 0; j < 54; j++)
         {
-            if (j <= i)
+            if (j <= (float)(progress*0.54))
             {
                 Console.Write("=");
             }
@@ -328,28 +348,16 @@ void LoadingAnimation (float duration)
             }
         }
         Console.Write("]");
-        if (i > 100)
-        {
-            i = 100;
-        }
-        Console.Write(" " + i + "%");
-        Thread.Sleep((int)((duration/100)*900));
+        Console.Write(" " + progress + "%");
+        Thread.Sleep((int)((duration/100)*1000));
         Console.SetCursorPosition(0, Console.CursorTop - 1);
-        i++;
     }
 
     Console.SetCursorPosition(0, Console.CursorTop + 1);
     Console.Write("Loading... [");
-    for (int j = 0; j <= 100; j++)
+    for (int j = 0; j < 54; j++)
     {
-        if (j <= i)
-        {
-            Console.Write("=");
-        }
-        else
-        {
-            Console.Write(" ");
-        }
+        Console.Write("=");
     }
     Console.Write("]");
     Console.WriteLine(" 100% DONE!");
@@ -363,7 +371,7 @@ void LoadingAnimation (float duration)
     Console.Write("Welcome... You and "); Thread.Sleep(100);
     TextScatterAnimation("Me", 1, 10, ConsoleColor.Red);
     Console.ForegroundColor = ConsoleColor.Gray;
-    Console.WriteLine("\n\n\n\n\n\n\n\n");
-    Thread.Sleep(5000);
+    Console.WriteLine("\n");
+    
 
 }
