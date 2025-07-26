@@ -54,7 +54,7 @@ TextTypingAnimation("Lay down your pieces: ", 1, false, ConsoleColor.Gray);
 Thread.Sleep(100);
 EraseText("Lay down your pieces: ".Length);
 TextScatterAnimation(".\\SetPieces.ps1 ", 0.3, 10, ConsoleColor.Gray);
-Console.WriteLine();
+Console.WriteLine("\n");
 Console.WriteLine("Currently Selected Piece/s: ");
 Console.WriteLine(@"
     Piece you = new Piece 
@@ -70,7 +70,6 @@ Console.WriteLine(@"
         Age = 0;
         Sex = 'F'; 
     }
-
 ");
 
 InsertPrompt();
@@ -79,6 +78,7 @@ TextScatterAnimation("OBJECT CREATION", 0.5, 10, ConsoleColor.Red);
 Thread.Sleep(500);
 EraseText("And let's begin object creation".Length);
 TextScatterAnimation(".\\CreateObjects.ps1", 0.2, 10, ConsoleColor.Gray);
+Console.WriteLine();
 AnimateCreateObjects();
 InsertPrompt();
 TextTypingAnimation("Fill in my data, parameters, ", 1.5, false, ConsoleColor.Gray);
@@ -87,6 +87,7 @@ TextScatterAnimation("INITIALIZATION", 0.2, 10, ConsoleColor.Red);
 Thread.Sleep(500);
 EraseText("Fill in my data, parameters, initialization".Length);
 TextScatterAnimation(@".\\FillDataForObjects.ps1 -ObjectOne ""You"" -ObjectTwo ""Me""", 0.5, 10, ConsoleColor.Gray);
+Console.WriteLine("\n");
 Console.WriteLine(@"Data for user ""You"":"); Thread.Sleep(10);
 Console.WriteLine(@"""Username"": ""You"""); Thread.Sleep(10);
 Console.WriteLine(@"""Email"": ""you.execute@me.com"""); Thread.Sleep(10);
@@ -104,7 +105,7 @@ TextTypingAnimation("Setup our new world", 1, false, ConsoleColor.Gray);
 Thread.Sleep(200);
 EraseText("Setup our new world".Length);
 TextScatterAnimation(".\\SetupNewWorld --suppress-errors --force-creation", 0.2, 10, ConsoleColor.Gray);
-Console.WriteLine();
+Console.WriteLine("\n");
 Console.Write("Confirm setup for new virtual world using existing users? (y\\n): ");
 Console.ForegroundColor = ConsoleColor.Red;
 TextTypingAnimation("And let's begin the S I M U L A T I O N .", 1, true, ConsoleColor.Red); Thread.Sleep(100);
@@ -178,7 +179,7 @@ TextTypingAnimation("TANGENTS", 0.25, true, ConsoleColor.Yellow);
 Console.WriteLine();
 InsertPromptVirtual();
 TextScatterAnimation(@"\\.SitOnTangents.ps1 -sineWaveOrigin ""Me"", -target ""You""", 0.5, 10, ConsoleColor.Gray);
-Console.WriteLine();
+
 Console.WriteLine(@"
     // NOTE: I have no idea how MATLAB works so take this pseudocode LMAO.
 
@@ -229,6 +230,122 @@ Console.Write(@"    Console.WriteLine(`Value of ""You"": ${you}`)");
 Console.WriteLine("\n");
 Console.Write(@"    ");
 TextScatterAnimation(@"Value of ""You"": 1", 0.1, 10, ConsoleColor.Yellow);
+
+
+Console.WriteLine("\n");
+InsertPromptVirtual();
+TextTypingAnimation("# Switch my ", 0.6, false, ConsoleColor.Gray);
+TextTypingAnimation("CURRENT", 0.5, true, ConsoleColor.Yellow);
+Console.WriteLine();
+
+InsertPromptVirtual();
+TextScatterAnimation(@"\.SwitchCurrent -target ""Me""", 0.1, 10, ConsoleColor.Gray);
+Console.WriteLine("\n");
+Console.WriteLine(@"    Current option for Current:"); Thread.Sleep(10);
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine(@"        - AC "); Thread.Sleep(10);
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine(@"        - DC "); Thread.Sleep(10);
+Console.ForegroundColor = ConsoleColor.Gray;
+Thread.Sleep(500);
+
+Console.SetCursorPosition(0, Console.CursorTop - 3);
+
+Console.WriteLine(@"    Current option for Current:");
+Console.ForegroundColor = ConsoleColor.Green;
+EraseText(50);
+Console.WriteLine(@"        - AC <--- SELECTED");
+Console.ForegroundColor = ConsoleColor.Red;
+EraseText(50);
+Console.WriteLine(@"        - DC "); Thread.Sleep(10);
+Console.ForegroundColor = ConsoleColor.Gray;
+Thread.Sleep(800);
+
+Console.SetCursorPosition(0, Console.CursorTop - 3);
+
+Console.WriteLine(@"    Current option for Current:");
+Console.ForegroundColor = ConsoleColor.Red;
+EraseText(50);
+Console.WriteLine(@"        - AC "); Thread.Sleep(10);
+Console.ForegroundColor = ConsoleColor.Green;
+EraseText(50);
+Console.WriteLine(@"        - DC <--- SELECTED");
+Console.ForegroundColor = ConsoleColor.Gray;
+Thread.Sleep(500);
+
+Console.WriteLine();
+InsertPromptVirtual();
+TextTypingAnimation("# And then blind my ", 0.7, false, ConsoleColor.Gray);
+TextTypingAnimation("VISION", 0.4, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextScatterAnimation(@"\.BlindVision", 0.3, 10, ConsoleColor.Gray);
+Console.WriteLine();
+Thread.Sleep(500);
+Console.ForegroundColor = ConsoleColor.DarkMagenta;
+for (int i = 0; i < 1500; i++)
+{
+    Console.Write("SO DIZZY ");
+
+}
+
+Thread.Sleep(800);
+
+Console.ForegroundColor = ConsoleColor.Red;
+for (int i = 0; i < 1500; i++)
+{
+    Console.Write("SO DIZZY ");
+
+}
+
+Thread.Sleep(750);
+
+Console.WriteLine("\n");
+InsertPromptVirtual();
+TextTypingAnimation("# Oh, we can travel ", 1.1, false, ConsoleColor.Gray);
+Console.WriteLine();
+
+InsertPromptVirtual();
+TextScatterAnimation(@"\.SetDate ", 0.4, 10, ConsoleColor.Gray);
+Console.WriteLine("\n");
+Console.WriteLine(@"    The Current Date is 2025/07/26. Type n to exit, otherwise type a new date."); Thread.Sleep(10);
+Console.Write(@"        DATE: 2025/07/26"); Thread.Sleep(10);
+Thread.Sleep(1000);
+
+Console.ForegroundColor = ConsoleColor.Green;
+EraseText(@"        DATE: 2025/07/26".Length);
+Console.WriteLine(@"        DATE: -2025/07/26"); Thread.Sleep(100);
+
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine();
+Console.WriteLine(@"    WARNING: YEAR SHOULD NOT BE A NEGATIVE NUMBER."); Thread.Sleep(10);
+Console.ForegroundColor = ConsoleColor.Gray;
+Console.WriteLine();
+Console.WriteLine(@"    Date has been set to 2025 BC!"); 
+Console.ForegroundColor = ConsoleColor.Gray;
+
+Thread.Sleep(600);
+
+Console.WriteLine("\n");
+InsertPromptVirtual();
+TextTypingAnimation("# And we can unite ", 1, false, ConsoleColor.Gray);
+Console.WriteLine();
+
+InsertPromptVirtual();
+TextScatterAnimation(@"\.UniteUsers -userOne ""Me"" -userTwo ""You"" ", 0.6, 10, ConsoleColor.Gray);
+Console.WriteLine("\n");
+Console.WriteLine(@"    Users ""You"" and ""Me"" have been united!");
+Console.WriteLine();
+InsertPromptVirtual();
+
+Thread.Sleep(500);
+
+TextScatterAnimation(@"\.UniteUsers -userOne ""Me"" -userTwo ""You"" ", 0.5, 10, ConsoleColor.Gray);
+Console.WriteLine("\n");
+Console.Write(@"    Users ""You"" and ""Me"" have been united more ");
+Console.ForegroundColor= ConsoleColor.Magenta;
+Console.Write("D E E P L Y .");
+
 
 
 
@@ -295,12 +412,28 @@ string RandomAsciiString(int length)
 }
 void EraseText(int length)
 {
-    Console.SetCursorPosition(Console.CursorLeft - length, Console.CursorTop);
+    if (Console.CursorLeft - length < 0)
+    {
+        Console.SetCursorPosition(0, Console.CursorTop);
+    }
+    else
+    {
+        Console.SetCursorPosition(Console.CursorLeft - length, Console.CursorTop);
+    }
+
     for (int i = 0; i < length; i++)
     {
         Console.Write(" ");
     }
-    Console.SetCursorPosition(Console.CursorLeft - length, Console.CursorTop);
+
+    if (Console.CursorLeft - length < 0)
+    {
+        Console.SetCursorPosition(0, Console.CursorTop);
+    } else
+    {
+        Console.SetCursorPosition(Console.CursorLeft - length, Console.CursorTop);
+    }
+    
 }
 void DisplayAsciiIntro()
 {
@@ -350,11 +483,11 @@ Creating objects from Piece/s: 'You', 'Me'..."); Thread.Sleep(10);
     Console.WriteLine("Stack Trace:");
     Console.WriteLine("   at Simulation.CreateEntity(String name)");
     Console.WriteLine("   at Simulation.InitializeWorld()");
-    Console.WriteLine("   at Simulation.Main()");
+    Console.WriteLine("   at Simulation.Main()\n");
     Console.ForegroundColor = ConsoleColor.Gray;
     InsertPrompt(); Thread.Sleep(10);
     TextScatterAnimation(".\\CreateObjects.ps1 --suppress-errors --force-creation", 0.1, 10, ConsoleColor.Gray);
-    Console.WriteLine();
+    Console.WriteLine("\n");
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine(@"Unhandled Exception: System.IdentityNotFoundException: Cannot instantiate object 'Me'.");
     Console.WriteLine("Reason: 'Me' does not exist in the current conceptual layer.");
