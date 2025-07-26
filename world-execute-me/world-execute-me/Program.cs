@@ -3,6 +3,7 @@ using System.Media;
 
 Random ran = new Random();
 
+
 Console.WriteLine("Press any key to begin...");
 Console.ReadKey();
 Console.Clear();
@@ -24,11 +25,12 @@ if (OperatingSystem.IsWindows())
 {
     SoundPlayer player = new SoundPlayer("worldexecuteme.wav ");
     player.Play();
+    
 } else
 {
     Console.WriteLine("Only supported for Windows :(");
 }
-
+Stopwatch elapsedTime = Stopwatch.StartNew(); // for debugging purposes
 
 TextTypingAnimation("Switch on the power line: ", 0.9, false, ConsoleColor.Gray);
 Console.ForegroundColor = ConsoleColor.Red;
@@ -51,7 +53,7 @@ InsertPrompt();
 TextTypingAnimation("Lay down your pieces: ", 1, false, ConsoleColor.Gray);
 Thread.Sleep(100);
 EraseText("Lay down your pieces: ".Length);
-TextScatterAnimation(".\\SetPieces.ps1", 0.3, 10, ConsoleColor.Gray);
+TextScatterAnimation(".\\SetPieces.ps1 ", 0.3, 10, ConsoleColor.Gray);
 Console.WriteLine();
 Console.WriteLine("Currently Selected Piece/s: ");
 Console.WriteLine(@"
@@ -89,8 +91,8 @@ Console.WriteLine(@"Data for user ""You"":"); Thread.Sleep(10);
 Console.WriteLine(@"""Username"": ""You"""); Thread.Sleep(10);
 Console.WriteLine(@"""Email"": ""you.execute@me.com"""); Thread.Sleep(10);
 Console.WriteLine(@"""Password"": **********"); Thread.Sleep(10);
+Console.WriteLine();
 Console.WriteLine(@"Data for user ""Me"":"); Thread.Sleep(10);
-
 Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine("Error: Object is inaccesble.");
 Console.WriteLine();
@@ -106,15 +108,129 @@ Console.WriteLine();
 Console.Write("Confirm setup for new virtual world using existing users? (y\\n): ");
 Console.ForegroundColor = ConsoleColor.Red;
 TextTypingAnimation("And let's begin the S I M U L A T I O N .", 1, true, ConsoleColor.Red); Thread.Sleep(100);
+Thread.Sleep(300);
 EraseText("And let's begin the S I M U L A T I O N .".Length);
-TextScatterAnimation("y", 0.5, 10, ConsoleColor.Red);
+TextScatterAnimation("y", 0.2, 10, ConsoleColor.Red);
 Thread.Sleep(200);
 
 Console.Clear();
 AnimateWorldCreation(12);
 
 InsertPromptVirtual();
-TextTypingAnimation("If I'm a set of points", 1, false, ConsoleColor.Gray);
+TextTypingAnimation("# If I'm a ", 0.7, false, ConsoleColor.Gray);
+TextTypingAnimation("SET OF POINTS", 0.7, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextTypingAnimation("# then I will give you my ", 0.9, false, ConsoleColor.Gray);
+TextTypingAnimation("DIMENSION", 0.4, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextScatterAnimation(@"\\.GiveDimension.ps1 -sender ""Me"", -receiver ""You""", 0.5, 10, ConsoleColor.Gray);
+Console.WriteLine();
+Console.WriteLine(@"
+    Point[] me = new Point[] 
+    {
+        new Point(1, 1),
+        new Point(4, 4),
+        new Point(3, 3)
+    }
+    
+    if (me is Point[]) {
+        foreach (float point in me) 
+        {
+            you.Add(point);
+        }
+    }
+");
+
+InsertPromptVirtual();
+TextTypingAnimation("# If I'm a ", 0.7, false, ConsoleColor.Gray);
+TextTypingAnimation("CIRCLE", 0.65, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextTypingAnimation("# then I will give you my ", 1, false, ConsoleColor.Gray);
+TextTypingAnimation("CIRCUMFERENCE", 0.35, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextScatterAnimation(@"\\.GiveCircumference.ps1 -sender ""Me"", -receiver ""You""", 0.4, 10, ConsoleColor.Gray);
+Console.WriteLine();
+Console.WriteLine(@"
+    Circle me = new Circle 
+    {
+        h = 1;
+        k = 4;
+        r = 3;
+    }
+    
+    if (me is Circle) {
+        float circumference = 2 * Math.PI * me.r;
+        you.Add(circumference);
+    }
+");
+
+InsertPromptVirtual();
+TextTypingAnimation("# If I'm a ", 0.7, false, ConsoleColor.Gray);
+TextTypingAnimation("SINE WAVE", 0.6, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextTypingAnimation("# then you can sit on all my ", 0.9, false, ConsoleColor.Gray);
+TextTypingAnimation("TANGENTS", 0.25, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextScatterAnimation(@"\\.SitOnTangents.ps1 -sineWaveOrigin ""Me"", -target ""You""", 0.5, 10, ConsoleColor.Gray);
+Console.WriteLine();
+Console.WriteLine(@"
+    // NOTE: I have no idea how MATLAB works so take this pseudocode LMAO.
+
+    double meAsTangent(me) => Math.Sin(me); 
+
+    Process.Start(""MATLOVE.exe"");
+
+    data = readmatrix('meAsTangent.csv');
+
+    youCanSitHere = zeros(length(x), 2);
+
+    for i = 1:length(x)
+        slope = cos(x(i));
+        intercept = y(i) - slope * x(i);
+        tangents(i, :) = [slope, intercept];
+    end
+");
+
+InsertPromptVirtual();
+TextTypingAnimation("# If I approach ", 0.7, false, ConsoleColor.Gray);
+TextTypingAnimation("INFINITY", 0.7, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextTypingAnimation("# then you can be my ", 0.9, false, ConsoleColor.Gray);
+TextTypingAnimation("LIMITATIONS", 0.3, true, ConsoleColor.Yellow);
+Console.WriteLine();
+InsertPromptVirtual();
+TextScatterAnimation(@"\\.ApproachInfinity.ps1 -valueOfX ""Me"", -limit ""You""", 0.5, 10, ConsoleColor.Gray);
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine(@"    Running ApproachInfinity with Parameters ""You"" to see if it approaches ""Me"".");
+Console.WriteLine();
+for (int i = 0; i < 10; i++)
+{
+    Console.Write(@"    f(" + Math.Pow(10, i) + ") = 0.");
+
+    for (int j = 0; j < 10; j++)
+    {
+        if (j <= i)
+        {
+            Console.Write(9);
+        }
+    }
+    Console.WriteLine(); Thread.Sleep(10);
+}
+Console.WriteLine();
+Console.Write(@"    Console.WriteLine(`Value of ""You"": ${you}`)");
+Console.WriteLine("\n");
+Console.Write(@"    ");
+TextScatterAnimation(@"Value of ""You"": 1", 0.1, 10, ConsoleColor.Yellow);
+
+
 
 Thread.Sleep(5000);
 
@@ -139,7 +255,6 @@ void TextScatterAnimation(string text, double duration, int animationSpeed, Cons
     Console.Write(text);
     Console.ForegroundColor = ConsoleColor.Gray;
 }
-
 void TextTypingAnimation(string text, double duration, bool highlight, ConsoleColor color)
 {
     int durationDivisor = 1;
@@ -169,7 +284,6 @@ void TextTypingAnimation(string text, double duration, bool highlight, ConsoleCo
         Console.ForegroundColor = ConsoleColor.Gray;
     }
 }
-
 string RandomAsciiString(int length)
 {
     char[] chars = new char[length];
@@ -179,7 +293,6 @@ string RandomAsciiString(int length)
     }
     return new string(chars);
 }
-
 void EraseText(int length)
 {
     Console.SetCursorPosition(Console.CursorLeft - length, Console.CursorTop);
@@ -189,7 +302,6 @@ void EraseText(int length)
     }
     Console.SetCursorPosition(Console.CursorLeft - length, Console.CursorTop);
 }
-
 void DisplayAsciiIntro()
 {
     Console.WriteLine(); Thread.Sleep(10);
@@ -206,21 +318,18 @@ void DisplayAsciiIntro()
     Console.WriteLine("Console Animation by: NiTzuA"); Thread.Sleep(10);
     Console.WriteLine("Welcome to WorldExeMe!\n"); Thread.Sleep(10);
 }
-
 void InsertPrompt()
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.Write("PS W:\\Execute\\Me> ");
     Console.ForegroundColor= ConsoleColor.Gray;
 }
-
 void InsertPromptVirtual()
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.Write("PS W:\\Execute\\Me\\VirtualWorld> ");
     Console.ForegroundColor = ConsoleColor.Gray;
 }
-
 void AnimateCreateObjects()
 {
     Console.WriteLine(@"
@@ -259,7 +368,6 @@ Creating objects from Piece/s: 'You', 'Me'..."); Thread.Sleep(10);
     Console.WriteLine("   at Simulation.World.Construct()");
     Console.WriteLine("   at Main()\n");
 }
-
 void AnimateWorldCreation(int duration)
 {
     string[] asciiArt = new string[]
@@ -300,7 +408,6 @@ void AnimateWorldCreation(int duration)
     Thread.Sleep(20);
     LoadingAnimation(duration);
 }
-
 void LoadingAnimation (float duration)
 {
     Console.CursorVisible = false;
