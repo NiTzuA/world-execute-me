@@ -334,6 +334,11 @@ Console.WriteLine();
 InsertPromptVirtual();
 TextScatterAnimation(@"\.UniteUsers -userOne ""Me"" -userTwo ""You"" ", 0.6, 10, ConsoleColor.Gray);
 Console.WriteLine("\n");
+Console.WriteLine(@"    User[] us = new User[]
+    {
+        me, you
+    };
+                        ");
 Console.WriteLine(@"    Users ""You"" and ""Me"" have been united!");
 Console.WriteLine();
 InsertPromptVirtual();
@@ -342,7 +347,18 @@ Thread.Sleep(500);
 
 TextScatterAnimation(@"\.UniteUsers -userOne ""Me"" -userTwo ""You"" ", 0.5, 10, ConsoleColor.Gray);
 Console.WriteLine("\n");
+Console.WriteLine(@"    User[] us = new User[]
+    {
+        me, you
+    };
+                        ");
+
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine(@"    Error: A local variable named 'us' is already defined in this scope
+                    ");
+Console.ForegroundColor = ConsoleColor.Gray;
 Console.Write(@"    Users ""You"" and ""Me"" have been united more ");
+
 Console.ForegroundColor= ConsoleColor.Magenta;
 Console.Write("D E E P L Y .");
 
